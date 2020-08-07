@@ -33,20 +33,20 @@
             </custompostprocess>
         </target>
 
-    Example of calling an Ant task from JavaFX SDK. Note that access to JavaFX SDK Ant tasks must be
+    ...Example of calling an Ant task from JavaFX SDK. Note that access to JavaFX SDK Ant tasks must be
     initialized; to ensure this is done add the dependence on -check-jfx-sdk-version target:
 
         <target name="-post-jfx-jar" depends="-check-jfx-sdk-version">
             <echo message="Calling jar task from JavaFX SDK"/>
             <fx:jar ...>
-                ...
+                ...   
             </fx:jar>
         </target>
 
     For more details about JavaFX SDK Ant tasks go to
     http://docs.oracle.com/javafx/2/deployment/jfxpub-deployment.htm
 
-    For list of available properties check the files
+    For list of available properties check the files ...
     nbproject/build-impl.xml and nbproject/jfx-impl.xml.
 
     -->

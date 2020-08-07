@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="200.0" prefWidth="258.0" stylesheets="@MyStyles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CONTROLLER.LogInController">
+<AnchorPane id="AnchorPane" prefHeight="254.0" prefWidth="258.0" stylesheets="@MyStyles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CONTROLLER.LogInController">
    <children>
       <Label layoutX="27.0" layoutY="25.0" text="E-mail" />
       <TextField fx:id="txEmail" layoutX="27.0" layoutY="52.0" prefHeight="25.0" prefWidth="203.0" promptText="E-mail" />
@@ -14,5 +14,6 @@
       <PasswordField fx:id="txSenha" layoutX="27.0" layoutY="120.0" prefHeight="25.0" prefWidth="203.0" promptText="Senha" />
       <Button fx:id="btSair" layoutX="50.0" layoutY="159.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" text="Cancelar" />
       <Button fx:id="btEntrar" layoutX="145.0" layoutY="159.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" text="Entrar" />
+      <Label layoutX="22.0" layoutY="223.0" text="Autor: andre.lucyo2@gmail.com" />
    </children>
 </AnchorPane>

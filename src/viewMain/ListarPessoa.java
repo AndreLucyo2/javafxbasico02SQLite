@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package VIEWMain;
+package viewMain;
 
 import javafx.application.Application;
 import static javafx.application.Application.launch;
@@ -16,32 +16,26 @@ import javafx.stage.Stage;
  *
  * @author Andre
  */
-public class CadEmpresa extends Application
+public class ListarPessoa extends Application
 {
 
-    
     private static Stage stage;
 
     @Override
     public void start(Stage tela) throws Exception
     {
-	
-	Parent root = FXMLLoader.load(getClass().getResource("/VIEW/FXMLCadEmpresa.fxml"));
 
-	
+	Parent root = FXMLLoader.load(getClass().getResource("/viewFxml/FXMLListarPessoa.fxml"));
+
 	Scene scene = new Scene(root);
 
-	
-	scene.getStylesheets().add("/VIEW/MyStyles.css");
+	scene.getStylesheets().add("/viewFxml/MyStyles.css");
 
-	
 	tela.setScene(scene);
-	tela.setTitle("Home");
+	tela.setTitle("Listar Pessoas");
 
-	
 	tela.show();
 
-	
 	setStage(tela);
 
     }
@@ -61,7 +55,7 @@ public class CadEmpresa extends Application
 
     public static void setStage(Stage stage)
     {
-	CadEmpresa.stage = stage;
+	ListarPessoa.stage = stage;
     }
 
 }

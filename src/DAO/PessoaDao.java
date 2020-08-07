@@ -5,7 +5,7 @@
  */
 package DAO;
 
-import DTO.PessoaDto;
+import entidades.PessoaDto;
 import JDBC.SQLiteConect;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

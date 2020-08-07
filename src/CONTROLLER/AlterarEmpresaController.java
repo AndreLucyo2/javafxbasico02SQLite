@@ -6,8 +6,8 @@
 package CONTROLLER;
 
 import DAO.EmpresaDao;
-import DTO.EmpresaDto;
-import VIEWMain.AlterarEmpresa;
+import entidades.EmpresaDto;
+import viewMain.AlterarEmpresa;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -53,7 +53,6 @@ public class AlterarEmpresaController implements Initializable
     @FXML
     private Button btAtualizar;
 
-  
     private String caminhoFoto = "H:/Noot_DELL/Dev_Software/WorkSpaceJAVA/ws-NetBeans/javafxbasico02/src/IMG/sem-foto.jpg";
 
     private static EmpresaDto empresaIn;
@@ -67,19 +66,17 @@ public class AlterarEmpresaController implements Initializable
     {
 	AlterarEmpresaController.empresaIn = empresaIn;
     }
-  
+
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-	
+
 	carregarEmpresa();
 
-	
 	btCancelar.setOnMouseClicked((MouseEvent e) ->
 	{
 	    fecharTela();
 	});
-
 
 	btCancelar.setOnKeyPressed((KeyEvent e) ->
 	{
@@ -89,13 +86,11 @@ public class AlterarEmpresaController implements Initializable
 	    }
 	});
 
-
 	btAtualizar.setOnMouseClicked((MouseEvent e) ->
 	{
 	    atualizarEmpresa();
 	    fecharTela();
 	});
-
 
 	btAtualizar.setOnKeyPressed((KeyEvent e) ->
 	{
@@ -106,7 +101,6 @@ public class AlterarEmpresaController implements Initializable
 	    }
 	});
 
-
 	imgFoto.setOnMouseClicked((MouseEvent e) ->
 	{
 	    selecionarFoto();
@@ -115,47 +109,41 @@ public class AlterarEmpresaController implements Initializable
 
     private void selecionarFoto()
     {
-	
+
 	FileChooser arquivo = new FileChooser();
 	arquivo.getExtensionFilters().add(new FileChooser.ExtensionFilter("Imagens", "*.jpg", "*.png", "*.bmp"));
 	File file = arquivo.showOpenDialog(new Stage());
 
-
 	if (file != null)
 	{
-	    
+
 	    imgFoto.setImage(new Image("file:///" + file.getAbsolutePath()));//Retorna o caminho absoluto do arquivo 
 
-	
 	    caminhoFoto = file.getAbsolutePath();
 	}
 	else
 	{
-	   
+
 	    imgFoto.setImage(new Image("file:///" + caminhoFoto));
 
-	
 	    Alert alert = new Alert(Alert.AlertType.ERROR);
 	    alert.setHeaderText("Imagem não selecionada!");
 	    alert.showAndWait();
 	}
     }
 
-
     public void carregarEmpresa()
     {
-	
+
 	lblID.setText(empresaIn.getId() + "");
 	txNome.setText(empresaIn.getNome());
 	txCpCnpj.setText(empresaIn.getCpfCnpj());
-
 
 	caminhoFoto = empresaIn.getFoto();
 
 	imgFoto.setImage(new Image("file:///" + empresaIn.getFoto()));
 
     }
-
 
     public void atualizarEmpresa()
     {
@@ -165,7 +153,6 @@ public class AlterarEmpresaController implements Initializable
 	empresaDto.setNome(txNome.getText());
 	empresaDto.setCpfCnpj(txCpCnpj.getText());
 	empresaDto.setFoto(caminhoFoto);
-
 
 	EmpresaDao empresaDao = new EmpresaDao();
 	if (empresaDao.update(empresaDto))
@@ -191,12 +178,12 @@ public class AlterarEmpresaController implements Initializable
 
     public static void abrirTela()
     {
-	
+
 	AlterarEmpresa tela = new AlterarEmpresa(null);
 
 	try
 	{
-	    
+
 	    tela.start(new Stage());
 	}
 	catch (Exception ex)

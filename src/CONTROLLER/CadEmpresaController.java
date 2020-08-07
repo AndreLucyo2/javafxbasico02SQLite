@@ -6,8 +6,8 @@
 package CONTROLLER;
 
 import DAO.EmpresaDao;
-import DTO.EmpresaDto;
-import VIEWMain.CadEmpresa;
+import entidades.EmpresaDto;
+import viewMain.CadEmpresa;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -53,18 +53,16 @@ public class CadEmpresaController implements Initializable
 
     private String caminhoFoto;
 
-
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-	
+
 	btCancelar.setOnMouseClicked((MouseEvent e) ->
 	{
 	    fecharTela();
 	    HomeController.abrirTela();
 	});
 
-	
 	btCancelar.setOnKeyPressed((KeyEvent e) ->
 	{
 	    if (e.getCode() == KeyCode.ENTER)
@@ -74,13 +72,11 @@ public class CadEmpresaController implements Initializable
 	    }
 	});
 
-	
 	btCadastrar.setOnMouseClicked((MouseEvent e) ->
 	{
 	    cadastrarEmpresa();
 	});
 
-	
 	btCadastrar.setOnKeyPressed((KeyEvent e) ->
 	{
 	    if (e.getCode() == KeyCode.ENTER)
@@ -89,7 +85,6 @@ public class CadEmpresaController implements Initializable
 	    }
 	});
 
-	
 	imgFoto.setOnMouseClicked((MouseEvent e) ->
 	{
 	    selecionarFoto();
@@ -99,15 +94,14 @@ public class CadEmpresaController implements Initializable
 
     private void selecionarFoto()
     {
-	
+
 	FileChooser arquivo = new FileChooser();
 	arquivo.getExtensionFilters().add(new ExtensionFilter("Imagens", "*.jpg", "*.png", "*.bmp"));
 	File file = arquivo.showOpenDialog(new Stage());
 
-	
 	if (file != null)
 	{
-	    
+
 	    imgFoto.setImage(new Image("file:///" + file.getAbsolutePath()));
 	    caminhoFoto = file.getAbsolutePath();
 	}
@@ -117,7 +111,6 @@ public class CadEmpresaController implements Initializable
 	    alert.setHeaderText("Imagem não selecionada!");
 	    alert.showAndWait();
 
-	    
 	    caminhoFoto = "";
 	}
 
@@ -125,18 +118,15 @@ public class CadEmpresaController implements Initializable
 
     public void cadastrarEmpresa()
     {
-	
+
 	String nome = txNome.getText();
 	String cpfcnj = txCpCnpj.getText();
 	String foto = caminhoFoto;
 
-	
 	EmpresaDto empresa = new EmpresaDto(nome, cpfcnj, foto);
 
-	
 	EmpresaDao empresaDao = new EmpresaDao();
 
-	
 	if (empresaDao.insert(empresa))
 	{
 	    Alert alert = new Alert(AlertType.CONFIRMATION);
@@ -164,7 +154,7 @@ public class CadEmpresaController implements Initializable
 
     public static void abrirTela()
     {
-	
+
 	CadEmpresa tela = new CadEmpresa();
 
 	try

@@ -6,8 +6,8 @@
 package CONTROLLER;
 
 import DAO.PessoaDao;
-import DTO.PessoaDto;
-import VIEWMain.CadPessoa;
+import entidades.PessoaDto;
+import viewMain.CadPessoa;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -61,7 +61,6 @@ public class CadPessoaController implements Initializable
     @FXML
     private ImageView imgFoto;
 
-    
     private String caminhoFoto = "H:/Noot_DELL/Dev_Software/WorkSpaceJAVA/ws-NetBeans/javafxbasico02/src/IMG/sem-foto.jpg";
 
     /**
@@ -70,14 +69,13 @@ public class CadPessoaController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-	
+
 	btCancelar.setOnMouseClicked((MouseEvent e) ->
 	{
 	    fecharTela();
 	    HomeController.abrirTela();
 	});
 
-	
 	btCancelar.setOnKeyPressed((KeyEvent e) ->
 	{
 	    if (e.getCode() == KeyCode.ENTER)
@@ -87,7 +85,6 @@ public class CadPessoaController implements Initializable
 	    }
 	});
 
-	
 	btCadastrar.setOnMouseClicked((MouseEvent e) ->
 	{
 	    cadastrarPessoa();
@@ -95,7 +92,6 @@ public class CadPessoaController implements Initializable
 	    HomeController.abrirTela();
 	});
 
-	
 	btCadastrar.setOnKeyPressed((KeyEvent e) ->
 	{
 	    if (e.getCode() == KeyCode.ENTER)
@@ -106,7 +102,6 @@ public class CadPessoaController implements Initializable
 	    }
 	});
 
-	
 	imgFoto.setOnMouseClicked((MouseEvent e) ->
 	{
 	    selecionarFoto();
@@ -115,15 +110,14 @@ public class CadPessoaController implements Initializable
 
     private void selecionarFoto()
     {
-	
+
 	FileChooser arquivo = new FileChooser();
 	arquivo.getExtensionFilters().add(new FileChooser.ExtensionFilter("Imagens", "*.jpg", "*.png", "*.bmp"));
 	File file = arquivo.showOpenDialog(new Stage());
 
-	
 	if (file != null)
 	{
-	    
+
 	    imgFoto.setImage(new Image("file:///" + file.getAbsolutePath()));
 	    caminhoFoto = file.getAbsolutePath();
 	}
@@ -139,26 +133,22 @@ public class CadPessoaController implements Initializable
 
     public void cadastrarPessoa()
     {
-	
+
 	String nome = txNome.getText();
 	String email = txemail.getText();
 	String senha = txSenha.getText();
 	String confirmaSenha = txConfSenha.getText();
 	String foto = caminhoFoto;
 
-	
 	lblAlertConfSenha.setVisible(false);
 
-	
 	if (senha.equals(confirmaSenha))
 	{
-	    
+
 	    PessoaDto pessoa = new PessoaDto(nome, email, senha, foto);
 
-	    
 	    PessoaDao pessoaDao = new PessoaDao();
 
-	    
 	    if (pessoaDao.insert(pessoa))
 	    {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
@@ -190,7 +180,7 @@ public class CadPessoaController implements Initializable
 
     public static void abrirTela()
     {
-	
+
 	CadPessoa tela = new CadPessoa();
 
 	try

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package VIEWMain;
+package viewMain;
 
 import javafx.application.Application;
 import static javafx.application.Application.launch;
@@ -22,32 +22,25 @@ import javafx.stage.WindowEvent;
 public class Home extends Application
 {
 
-    
     private static Stage stage;
 
     @Override
     public void start(Stage tela) throws Exception
     {
-	
-	Parent root = FXMLLoader.load(getClass().getResource("/VIEW/FXMLHome.fxml"));
 
-	
+	Parent root = FXMLLoader.load(getClass().getResource("/viewFxml/FXMLHome.fxml"));
+
 	Scene scene = new Scene(root);
 
-	
-	scene.getStylesheets().add("/VIEW/MyStyles.css");
+	scene.getStylesheets().add("/viewFxml/MyStyles.css");
 
-	
 	tela.setScene(scene);
 	tela.setTitle("Home");
 
-	
 	tela.show();
 
-	
 	setStage(tela);
-	
-		
+
 	tela.setOnCloseRequest(new EventHandler<WindowEvent>()
 	{
 	    @Override
@@ -55,7 +48,6 @@ public class Home extends Application
 	    {
 		event.consume();
 
-		
 		tela.close();
 		Platform.exit();
 		System.exit(0);

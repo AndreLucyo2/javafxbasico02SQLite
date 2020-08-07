@@ -6,9 +6,9 @@
 package CONTROLLER;
 
 import DAO.EmpresaDao;
-import DTO.EmpresaDto;
-import VIEWMain.AlterarEmpresa;
-import VIEWMain.ListarEmpresa;
+import entidades.EmpresaDto;
+import viewMain.AlterarEmpresa;
+import viewMain.ListarEmpresa;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -92,7 +92,6 @@ public class ListaEmpresaController implements Initializable
 	    HomeController.abrirTela();
 	});
 
-	
 	btCancelar.setOnKeyPressed((KeyEvent e) ->
 	{
 	    if (e.getCode() == KeyCode.ENTER)
@@ -102,27 +101,24 @@ public class ListaEmpresaController implements Initializable
 	    }
 	});
 
-	
 	tblEmpresa.getSelectionModel().selectedItemProperty().addListener(new ChangeListener()
 	{
-	    
+
 	    @Override
 	    public void changed(ObservableValue observable, Object oldValue, Object newValue)
 	    {
-		
+
 		empresaSelected = (EmpresaDto) newValue;
 
 		mostrarDetalhes();
 	    }
 	});
 
-	
 	btDeletar.setOnMouseClicked((MouseEvent e) ->
 	{
 	    deletarItem();
 	});
 
-	
 	btDeletar.setOnKeyPressed((KeyEvent e) ->
 	{
 	    if (e.getCode() == KeyCode.ENTER)
@@ -131,14 +127,12 @@ public class ListaEmpresaController implements Initializable
 	    }
 	});
 
-	
 	btAtualizar.setOnMouseClicked((MouseEvent e) ->
 	{
 	    tblEmpresa.setItems(atualizaObsLista());
 
 	});
 
-	
 	btAtualizar.setOnKeyPressed((KeyEvent e) ->
 	{
 	    if (e.getCode() == KeyCode.ENTER)
@@ -147,14 +141,12 @@ public class ListaEmpresaController implements Initializable
 	    }
 	});
 
-	
 	btAlterar.setOnMouseClicked((MouseEvent e) ->
 	{
 	    alterarItem();
 
 	});
 
-	
 	btAlterar.setOnKeyPressed((KeyEvent e) ->
 	{
 	    if (e.getCode() == KeyCode.ENTER)
@@ -184,22 +176,20 @@ public class ListaEmpresaController implements Initializable
      */
     private void mostrarDetalhes()
     {
-	
+
 	if (empresaSelected != null)
 	{
 	    lblID.setText(empresaSelected.getId() + "");
 	    lblNome.setText(empresaSelected.getNome());
 	    lblCpfCnpj.setText(empresaSelected.getCpfCnpj());
 
-	    
 	    if (empresaSelected.getFoto() != null)
 	    {
-		
+
 		imgEmpresa.setImage(new Image("file:///" + empresaSelected.getFoto()));
 	    }
 	    else
 	    {
-		
 
 		String caminhoFoto = "@../IMG/sem-foto.jpg";
 		imgEmpresa.setImage(new Image("file:///" + caminhoFoto));
@@ -211,17 +201,17 @@ public class ListaEmpresaController implements Initializable
 	    lblID.setText("");
 	    lblNome.setText("");
 	    lblCpfCnpj.setText("");
-	    
+
 	}
 
     }
 
     private void alterarItem()
     {
-	
+
 	if (empresaSelected != null)
 	{
-	    
+
 	    AlterarEmpresa tela = new AlterarEmpresa(empresaSelected);
 
 	    try
@@ -233,13 +223,12 @@ public class ListaEmpresaController implements Initializable
 		Logger.getLogger(LogInController.class.getName()).log(Level.SEVERE, null, ex);
 	    }
 
-	    
 	    tblEmpresa.setItems(atualizaObsLista());
 
 	}
 	else
 	{
-	    
+
 	    Alert alert = new Alert(Alert.AlertType.WARNING);
 	    alert.setTitle("Atenção!");
 	    alert.setHeaderText("Selecione um item.");
@@ -249,14 +238,13 @@ public class ListaEmpresaController implements Initializable
 
     private void deletarItem()
     {
-	
+
 	if (empresaSelected != null)
 	{
 	    Alert alert1 = new Alert(Alert.AlertType.CONFIRMATION);
 	    alert1.setHeaderText("Deseja realmente deletar o registro [ " + empresaSelected.getId() + " ] ? ");
 	    alert1.showAndWait();
-	    
-	    
+
 	    System.out.println(alert1.getResult().getText());
 
 	    if (alert1.getResult().getText().equals("OK"))
@@ -264,10 +252,8 @@ public class ListaEmpresaController implements Initializable
 		EmpresaDao empresaDao = new EmpresaDao();
 		empresaDao.delete(empresaSelected);
 
-		
 		tblEmpresa.setItems(atualizaObsLista());
 
-		
 		Alert alert = new Alert(Alert.AlertType.INFORMATION);
 		alert.setTitle("Sucesso!");
 		alert.setHeaderText("Registro deletado com sucesso.");
@@ -278,7 +264,7 @@ public class ListaEmpresaController implements Initializable
 	}
 	else
 	{
-	    
+
 	    Alert alert = new Alert(Alert.AlertType.WARNING);
 	    alert.setTitle("Atenção!");
 	    alert.setHeaderText("Selecione um item.");
@@ -290,13 +276,13 @@ public class ListaEmpresaController implements Initializable
 
     public static void fecharTela()
     {
-	
+
 	ListarEmpresa.getStage().close();
     }
 
     public static void abrirTela()
     {
-	
+
 	ListarEmpresa tela = new ListarEmpresa();
 
 	try

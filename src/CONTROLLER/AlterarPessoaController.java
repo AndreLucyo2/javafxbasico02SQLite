@@ -6,8 +6,8 @@
 package CONTROLLER;
 
 import DAO.PessoaDao;
-import DTO.PessoaDto;
-import VIEWMain.AlterarPessoa;
+import entidades.PessoaDto;
+import viewMain.AlterarPessoa;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -27,7 +27,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-
 
 public class AlterarPessoaController implements Initializable
 {
@@ -56,11 +55,8 @@ public class AlterarPessoaController implements Initializable
     @FXML
     private ImageView imgFoto;
 
-    
     private String caminhoFoto = "H:/Noot_DELL/Dev_Software/WorkSpaceJAVA/ws-NetBeans/javafxbasico02/src/IMG/sem-foto.jpg";
 
-    
-    
     private static PessoaDto pessoaIn;
 
     public static PessoaDto getPessoaIn()
@@ -72,25 +68,21 @@ public class AlterarPessoaController implements Initializable
     {
 	AlterarPessoaController.pessoaIn = pessoaIn;
     }
-    
 
     @FXML
     private Label lblID;
 
-  
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-	
+
 	carregarPessoa();
 
-	
 	btCancelar.setOnMouseClicked((MouseEvent e) ->
 	{
 	    fecharTela();
 	});
 
-	
 	btCancelar.setOnKeyPressed((KeyEvent e) ->
 	{
 	    if (e.getCode() == KeyCode.ENTER)
@@ -99,14 +91,12 @@ public class AlterarPessoaController implements Initializable
 	    }
 	});
 
-	
 	btAtualizar.setOnMouseClicked((MouseEvent e) ->
 	{
 	    atualizarPessoa();
 	    fecharTela();
 	});
 
-	
 	btAtualizar.setOnKeyPressed((KeyEvent e) ->
 	{
 	    if (e.getCode() == KeyCode.ENTER)
@@ -116,7 +106,6 @@ public class AlterarPessoaController implements Initializable
 	    }
 	});
 
-	
 	imgFoto.setOnMouseClicked((MouseEvent e) ->
 	{
 	    selecionarFoto();
@@ -125,68 +114,60 @@ public class AlterarPessoaController implements Initializable
 
     private void selecionarFoto()
     {
-	
+
 	FileChooser arquivo = new FileChooser();
 	arquivo.getExtensionFilters().add(new FileChooser.ExtensionFilter("Imagens", "*.jpg", "*.png", "*.bmp"));
 	File file = arquivo.showOpenDialog(new Stage());
 
-	
 	if (file != null)
 	{
-	    
+
 	    imgFoto.setImage(new Image("file:///" + file.getAbsolutePath()));//Retorna o caminho absoluto do arquivo 
 
-	    
 	    caminhoFoto = file.getAbsolutePath();
 	}
 	else
 	{
-	    
+
 	    imgFoto.setImage(new Image("file:///" + caminhoFoto));
-	    
-	    
+
 	    Alert alert = new Alert(Alert.AlertType.ERROR);
 	    alert.setHeaderText("Imagem não selecionada!");
 	    alert.showAndWait();
 	}
     }
 
-
     public void carregarPessoa()
     {
-	
+
 	lblID.setText(pessoaIn.getId() + "");
 	txNome.setText(pessoaIn.getNome());
 	txemail.setText(pessoaIn.getEmail());
 	txSenha.setText(pessoaIn.getSenha());
 	txConfSenha.setText(pessoaIn.getSenha());
 
-	
 	caminhoFoto = pessoaIn.getFoto();
-	
+
 	imgFoto.setImage(new Image("file:///" + pessoaIn.getFoto()));
 
     }
 
-
     public void atualizarPessoa()
     {
-	
-	lblAlertConfSenha.setVisible(true);
 
+	lblAlertConfSenha.setVisible(true);
 
 	if (txSenha.getText().equals(txConfSenha.getText()))
 	{
-	    
-	    PessoaDto pessoaDto = new PessoaDto();	    
+
+	    PessoaDto pessoaDto = new PessoaDto();
 	    pessoaDto.setId(pessoaIn.getId());
 	    pessoaDto.setNome(txNome.getText());
 	    pessoaDto.setEmail(txemail.getText());
 	    pessoaDto.setSenha(txSenha.getText());
-	    pessoaDto.setFoto(caminhoFoto); 
+	    pessoaDto.setFoto(caminhoFoto);
 
-	    
-	    PessoaDao pessoaDao = new PessoaDao();	   
+	    PessoaDao pessoaDao = new PessoaDao();
 	    if (pessoaDao.update(pessoaDto))
 	    {
 		Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -220,12 +201,12 @@ public class AlterarPessoaController implements Initializable
 
     public static void abrirTela()
     {
-	
+
 	AlterarPessoa tela = new AlterarPessoa(null);
 
 	try
 	{
-	    
+
 	    tela.start(new Stage());
 	}
 	catch (Exception ex)

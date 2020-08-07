@@ -3,10 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package VIEWMain;
+package viewMain;
 
-import CONTROLLER.AlterarPessoaController;
-import DTO.PessoaDto;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
@@ -18,38 +16,26 @@ import javafx.stage.Stage;
  *
  * @author Andre
  */
-public class AlterarPessoa extends Application
+public class CadEmpresa extends Application
 {
-    
+
     private static Stage stage;
 
-    
-    public AlterarPessoa(PessoaDto pessoa)
-    {
-	AlterarPessoaController.setPessoaIn(pessoa);
-    }  
-    
-    
     @Override
     public void start(Stage tela) throws Exception
     {
-	
-	Parent root = FXMLLoader.load(getClass().getResource("/VIEW/FXMLAlterarPessoa.fxml"));
 
-	
+	Parent root = FXMLLoader.load(getClass().getResource("/viewFxml/FXMLCadEmpresa.fxml"));
+
 	Scene scene = new Scene(root);
 
-	
-	scene.getStylesheets().add("/VIEW/MyStyles.css");
+	scene.getStylesheets().add("/viewFxml/MyStyles.css");
 
-	
 	tela.setScene(scene);
-	tela.setTitle("Alterar de Pessoa");
+	tela.setTitle("Home");
 
-	
 	tela.show();
 
-	
 	setStage(tela);
 
     }
@@ -69,7 +55,7 @@ public class AlterarPessoa extends Application
 
     public static void setStage(Stage stage)
     {
-	AlterarPessoa.stage = stage;
+	CadEmpresa.stage = stage;
     }
 
 }

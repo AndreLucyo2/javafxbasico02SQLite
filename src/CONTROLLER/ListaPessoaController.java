@@ -6,10 +6,10 @@
 package CONTROLLER;
 
 import DAO.PessoaDao;
-import DTO.PessoaDto;
+import entidades.PessoaDto;
 import UTILIDADES.Aplicacao;
-import VIEWMain.AlterarPessoa;
-import VIEWMain.ListarPessoa;
+import viewMain.AlterarPessoa;
+import viewMain.ListarPessoa;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;

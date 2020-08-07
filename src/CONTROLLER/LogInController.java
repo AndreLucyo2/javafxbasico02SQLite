@@ -6,9 +6,9 @@
 package CONTROLLER;
 
 import DAO.PessoaDao;
-import DTO.PessoaDto;
+import entidades.PessoaDto;
 import JDBC.AtuBanco;
-import VIEWMain.Login;
+import viewMain.Login;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -33,15 +33,14 @@ import javax.swing.JOptionPane;
  */
 public class LogInController implements Initializable
 {
+
     public LogInController()
     {
-	
 	if (AtuBanco.criarTabelas())
 	{
-	    
 	    JOptionPane.showMessageDialog(null, "Banco Criado com Suceso!", "Aviso", JOptionPane.INFORMATION_MESSAGE);
 	}
-	
+
     }
 
     @FXML
@@ -62,13 +61,12 @@ public class LogInController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-	
+
 	btEntrar.setOnMouseClicked((MouseEvent e) ->
 	{
 	    logar();
 	});
 
-	
 	btEntrar.setOnKeyPressed((KeyEvent e) ->
 	{
 	    if (e.getCode() == KeyCode.ENTER)
@@ -78,7 +76,6 @@ public class LogInController implements Initializable
 
 	});
 
-	
 	txSenha.setOnKeyPressed((KeyEvent e) ->
 	{
 	    if (e.getCode() == KeyCode.ENTER)
@@ -88,15 +85,12 @@ public class LogInController implements Initializable
 
 	});
 
-	
-	
 	btSair.setOnMouseClicked((MouseEvent e) ->
 	{
 	    System.out.println("Saí com clique");
 	    fecharTela();
 	});
 
-	
 	btSair.setOnKeyPressed((KeyEvent e) ->
 	{
 	    if (e.getCode() == KeyCode.ENTER || e.getCode() == KeyCode.ESCAPE)
@@ -116,8 +110,10 @@ public class LogInController implements Initializable
      */
     public boolean isAdminAcess()
     {
+	
 	String admin = "admin";
 	String snhAdm = "123";
+	
 	boolean acessoAdm = false;
 	if (txEmail.getText().equals(admin) && txSenha.getText().equals(snhAdm))
 	{
@@ -132,21 +128,19 @@ public class LogInController implements Initializable
 
     public void logar()
     {
-	
+
 	PessoaDto pessoa = new PessoaDto(txEmail.getText(), txSenha.getText());
 
-	
 	if (!pessoa.getEmail().equals("") && !pessoa.getSenha().equals("") && new PessoaDao().validaLogin(pessoa) || isAdminAcess())
 	{
-	    
+
 	    fecharTela();
 
-	    
 	    HomeController.abrirTela();
 	}
 	else
 	{
-	    
+
 	    Alert alert = new Alert(AlertType.WARNING);
 	    alert.setTitle("Usuário inválido!");
 	    alert.setHeaderText("Erro Ao logar \nEmail ou senha incorreto.");
@@ -157,13 +151,13 @@ public class LogInController implements Initializable
 
     public void fecharTela()
     {
-	
+
 	Login.getStage().close();
     }
 
     public static void abrirTela()
     {
-	
+
 	Login tela = new Login();
 
 	try

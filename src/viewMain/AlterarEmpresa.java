@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package VIEWMain;
+package viewMain;
 
+import CONTROLLER.AlterarEmpresaController;
+import entidades.EmpresaDto;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
@@ -16,32 +18,31 @@ import javafx.stage.Stage;
  *
  * @author Andre
  */
-public class ListarPessoa extends Application
+public class AlterarEmpresa extends Application
 {
 
-    
     private static Stage stage;
+
+    public AlterarEmpresa(EmpresaDto empresa)
+    {
+	AlterarEmpresaController.setEmpresaIn(empresa);
+    }
 
     @Override
     public void start(Stage tela) throws Exception
     {
-	
-	Parent root = FXMLLoader.load(getClass().getResource("/VIEW/FXMLListarPessoa.fxml"));
 
-	
+	Parent root = FXMLLoader.load(getClass().getResource("/viewFxml/FXMLAlterarEmpresa.fxml"));
+
 	Scene scene = new Scene(root);
 
-	
-	scene.getStylesheets().add("/VIEW/MyStyles.css");
+	scene.getStylesheets().add("/viewFxml/MyStyles.css");
 
-	
 	tela.setScene(scene);
-	tela.setTitle("Listar Pessoas");
+	tela.setTitle("Alterar de Empresa");
 
-	
 	tela.show();
 
-	
 	setStage(tela);
 
     }
@@ -61,7 +62,7 @@ public class ListarPessoa extends Application
 
     public static void setStage(Stage stage)
     {
-	ListarPessoa.stage = stage;
+	AlterarEmpresa.stage = stage;
     }
 
 }

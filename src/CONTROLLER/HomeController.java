@@ -7,9 +7,9 @@ package CONTROLLER;
 
 import DAO.EmpresaDao;
 import DAO.PessoaDao;
-import DTO.EmpresaDto;
-import DTO.PessoaDto;
-import VIEWMain.Home;
+import entidades.EmpresaDto;
+import entidades.PessoaDto;
+import viewMain.Home;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -31,8 +31,6 @@ import javafx.stage.Stage;
 public class HomeController implements Initializable
 {
 
-    
-    
     @FXML
     private Button btCadastrarPessoa;
 
@@ -51,141 +49,134 @@ public class HomeController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
-        
-        btCadastrarPessoa.setOnMouseClicked((MouseEvent e) ->
-        {
-            fecharTela();
-            CadPessoaController.abrirTela();
-        });
 
-        
-        btCadastrarPessoa.setOnKeyPressed((KeyEvent e) ->
-        {
-            if (e.getCode() == KeyCode.ENTER)
-            {
-                fecharTela();
-                CadPessoaController.abrirTela();
-            }
-        });
+	btCadastrarPessoa.setOnMouseClicked((MouseEvent e) ->
+	{
+	    fecharTela();
+	    CadPessoaController.abrirTela();
+	});
 
-        
-        btCadastrarEmpresa.setOnMouseClicked((MouseEvent e) ->
-        {
-            fecharTela();
-            CadEmpresaController.abrirTela();
-        });
+	btCadastrarPessoa.setOnKeyPressed((KeyEvent e) ->
+	{
+	    if (e.getCode() == KeyCode.ENTER)
+	    {
+		fecharTela();
+		CadPessoaController.abrirTela();
+	    }
+	});
 
-        
-        btCadastrarEmpresa.setOnKeyPressed((KeyEvent e) ->
-        {
-            if (e.getCode() == KeyCode.ENTER)
-            {
-                fecharTela();
-                CadEmpresaController.abrirTela();
-            }
-        });
+	btCadastrarEmpresa.setOnMouseClicked((MouseEvent e) ->
+	{
+	    fecharTela();
+	    CadEmpresaController.abrirTela();
+	});
 
-        
-        btListarPessoa.setOnMouseClicked((MouseEvent e) ->
-        {
-            fecharTela();
-            ListaPessoaController.abrirTela();
-        });
+	btCadastrarEmpresa.setOnKeyPressed((KeyEvent e) ->
+	{
+	    if (e.getCode() == KeyCode.ENTER)
+	    {
+		fecharTela();
+		CadEmpresaController.abrirTela();
+	    }
+	});
 
-        
-        btListarPessoa.setOnKeyPressed((KeyEvent e) ->
-        {
-            if (e.getCode() == KeyCode.ENTER)
-            {
-                fecharTela();
-                ListaPessoaController.abrirTela();
-            }
-        });
+	btListarPessoa.setOnMouseClicked((MouseEvent e) ->
+	{
+	    fecharTela();
+	    ListaPessoaController.abrirTela();
+	});
 
-        
-        btListarEmpresa.setOnMouseClicked((MouseEvent e) ->
-        {
-            fecharTela();
-            ListaEmpresaController.abrirTela();
-        });
+	btListarPessoa.setOnKeyPressed((KeyEvent e) ->
+	{
+	    if (e.getCode() == KeyCode.ENTER)
+	    {
+		fecharTela();
+		ListaPessoaController.abrirTela();
+	    }
+	});
 
-        
-        btListarEmpresa.setOnKeyPressed((KeyEvent e) ->
-        {
-            if (e.getCode() == KeyCode.ENTER)
-            {
-                fecharTela();
-                ListaEmpresaController.abrirTela();
-            }
-        });
+	btListarEmpresa.setOnMouseClicked((MouseEvent e) ->
+	{
+	    fecharTela();
+	    ListaEmpresaController.abrirTela();
+	});
+
+	btListarEmpresa.setOnKeyPressed((KeyEvent e) ->
+	{
+	    if (e.getCode() == KeyCode.ENTER)
+	    {
+		fecharTela();
+		ListaEmpresaController.abrirTela();
+	    }
+	});
 
     }
 
     private static void listarPessoa()
     {
-        System.out.println("Listando pessoas: ");
+	System.out.println("Listando pessoas: ");
 
-        PessoaDao pessoaDao = new PessoaDao();
-        List<PessoaDto> pessoas = pessoaDao.selecAll();
+	PessoaDao pessoaDao = new PessoaDao();
+	List<PessoaDto> pessoas = pessoaDao.selecAll();
 
-        if (pessoas != null)
-        {
-            for (int x = 0; x < pessoas.size(); x++)
-            {
-                
-                System.out.println(pessoas.get(x).mostraPessoa());
-                System.out.println("--------------------------------------");
-            }
-        }
-        else
-        {
-            System.out.println("Não Selecionado");
-        }
+	if (pessoas != null)
+	{
+	    for (int x = 0; x < pessoas.size(); x++)
+	    {
+
+		System.out.println(pessoas.get(x).mostraPessoa());
+		System.out.println("--------------------------------------");
+	    }
+	}
+	else
+	{
+	    System.out.println("Não Selecionado");
+	}
 
     }
 
     private static void listarEmpresa()
     {
-        System.out.println("Listando pessoas: ");
+	System.out.println("Listando pessoas: ");
 
-        EmpresaDao empresaDao = new EmpresaDao();
-        List<EmpresaDto> empresas = empresaDao.selecAll();
+	EmpresaDao empresaDao = new EmpresaDao();
+	List<EmpresaDto> empresas = empresaDao.selecAll();
 
-        if (empresas != null)
-        {
-            for (int x = 0; x < empresas.size(); x++)
-            {
-                
-                System.out.println(empresas.get(x).mostraEmpresa());
-                System.out.println("--------------------------------------");
-            }
-        }
-        else
-        {
-            System.out.println("Não Selecionado");
-        }
+	if (empresas != null)
+	{
+	    for (int x = 0; x < empresas.size(); x++)
+	    {
+
+		System.out.println(empresas.get(x).mostraEmpresa());
+		System.out.println("--------------------------------------");
+	    }
+	}
+	else
+	{
+	    System.out.println("Não Selecionado");
+	}
 
     }
 
     public static void fecharTela()
     {
-        
-        Home.getStage().close();
+
+	Home.getStage().close();
     }
 
     public static void abrirTela()
     {
-        
-        Home tela = new Home();
 
-        try
-        {
-            tela.start(new Stage());
-        }
-        catch (Exception ex)
-        {
-            Logger.getLogger(LogInController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+	Home tela = new Home();
+
+	try
+	{
+	    tela.start(new Stage());
+	}
+	catch (Exception ex)
+	{
+	    Logger.getLogger(LogInController.class.getName()).log(Level.SEVERE, null, ex);
+	}
     }
 
 }

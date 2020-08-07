@@ -26,10 +26,9 @@ public class Aplicacao
      */
     public String getPastaAplicacao()
     {
-	
+
 	String url = getClass().getResource(getClass().getSimpleName() + ".class").getPath();
 
-	
 	File diretorio = new File(url).getParentFile();
 
 	String path = null;
@@ -57,7 +56,7 @@ public class Aplicacao
      */
     private String findJarParentPath(File jarFile)
     {
-	
+
 	while (jarFile.getPath().contains(".jar"))
 	{
 	    jarFile = jarFile.getParentFile();
@@ -77,29 +76,23 @@ public class Aplicacao
     {
 	try
 	{
-	    
-	    
-	    
+
 	    String pastaJAR = new Aplicacao().getPastaAplicacao();
 
-	    
-	    
-	    
 	    String patchBD = pastaJAR + "/" + pasta;
 	    File diretorio = new File(patchBD);
 	    if (!diretorio.exists())
 	    {
-		
+
 		diretorio.mkdirs();
 
-		
 		System.out.println(">>>>>>> PASTAS CIADAS: " + diretorio.getAbsolutePath());
 
 		return true;
 	    }
 	    else
 	    {
-		
+
 		System.out.println(">>>>>>> Pasta Ja existe!");
 		return false;
 	    }
@@ -121,34 +114,27 @@ public class Aplicacao
      */
     public Image getImageJAR(String camihoImagem)
     {
-	
-	
+
 	ClassLoader cl = this.getClass().getClassLoader();
 
 	JOptionPane.showMessageDialog(null, camihoImagem);
 
 	JOptionPane.showMessageDialog(null, cl.getResource(camihoImagem).getPath());
 
-	
 	Image img = new Image(cl.getResource(camihoImagem).getPath());
 
 	return img;
     }
 
-    
-    
     public Image setImageSemFoto()
     {
-	
-	
+
 	ClassLoader cl = this.getClass().getClassLoader();
 
-	
-	
 	URL url = cl.getResource("IMG/sem-foto-teste.jpg");
 	Image img = new Image(url.getHost());
-	
-	JOptionPane.showMessageDialog(null,url);
+
+	JOptionPane.showMessageDialog(null, url);
 
 	return img;
     }

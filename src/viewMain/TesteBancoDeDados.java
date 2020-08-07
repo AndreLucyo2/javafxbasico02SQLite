@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package VIEWMain;
+package viewMain;
 
 import DAO.PessoaDao;
-import DTO.PessoaDto;
+import entidades.PessoaDto;
 import JDBC.AtuBanco;
 import JDBC.SQLiteConect;
 import UTILIDADES.Aplicacao;
@@ -34,7 +34,6 @@ public class TesteBancoDeDados
 	ClassLoader cl = this.getClass().getClassLoader();
 
 	JOptionPane.showMessageDialog(null, cl.getResource("IMG/sem-foto-teste.jpg").getFile());
-
     }
 
     public String testeBuscacaminhoJar_04()

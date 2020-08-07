@@ -3,53 +3,56 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package VIEWMain;
+package viewMain;
 
-import CONTROLLER.AlterarEmpresaController;
-import DTO.EmpresaDto;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
+import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 /**
  *
  * @author Andre
  */
-public class AlterarEmpresa extends Application
+public class Login extends Application
 {
-    
+
     private static Stage stage;
 
-    
-    public AlterarEmpresa(EmpresaDto empresa)
-    {
-	AlterarEmpresaController.setEmpresaIn(empresa);
-    }      
-    
     @Override
-    public void start(Stage tela) throws Exception
+    public void start(Stage stage) throws Exception
     {
-	
-	Parent root = FXMLLoader.load(getClass().getResource("/VIEW/FXMLAlterarEmpresa.fxml"));
 
-	
+	Parent root = FXMLLoader.load(getClass().getResource("/viewFxml/FXMLLogIn.fxml"));
+
 	Scene scene = new Scene(root);
 
-	
-	scene.getStylesheets().add("/VIEW/MyStyles.css");
+	scene.getStylesheets().add("/viewFxml/MyStyles.css");
 
-	
-	tela.setScene(scene);
-	tela.setTitle("Alterar de Empresa");
+	stage.setScene(scene);
+	stage.setTitle("Login");
 
-	
-	tela.show();
+	stage.show();
 
-	
-	setStage(tela);
+	setStage(stage);
+
+	stage.setOnCloseRequest(new EventHandler<WindowEvent>()
+	{
+	    @Override
+	    public void handle(WindowEvent event)
+	    {
+		event.consume();
+
+		stage.close();
+		Platform.exit();
+		System.exit(0);
+	    }
+	});
 
     }
 
@@ -58,7 +61,9 @@ public class AlterarEmpresa extends Application
      */
     public static void main(String[] args)
     {
+
 	launch(args);
+
     }
 
     public static Stage getStage()
@@ -68,7 +73,7 @@ public class AlterarEmpresa extends Application
 
     public static void setStage(Stage stage)
     {
-	AlterarEmpresa.stage = stage;
+	Login.stage = stage;
     }
 
 }

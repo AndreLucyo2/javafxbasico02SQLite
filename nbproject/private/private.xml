@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group name="BarberShop"/>
+        <group name="wsNetBeansIFPR">
+            <file>file:/H:/Noot_DELL/Dev_Software/WorkSpaceJAVA/ws-NetBeans/javafxbasico02SQLite/src/CONTROLLER/ListaEmpresaController.java</file>
+            <file>file:/H:/Noot_DELL/Dev_Software/WorkSpaceJAVA/ws-NetBeans/javafxbasico02SQLite/src/UTILIDADES/Aplicacao.java</file>
+            <file>file:/H:/Noot_DELL/Dev_Software/WorkSpaceJAVA/ws-NetBeans/javafxbasico02SQLite/src/DAO/PessoaDao.java</file>
+            <file>file:/H:/Noot_DELL/Dev_Software/WorkSpaceJAVA/ws-NetBeans/javafxbasico02SQLite/src/VIEWMain/AlterarEmpresa.java</file>
+            <file>file:/H:/Noot_DELL/Dev_Software/WorkSpaceJAVA/ws-NetBeans/javafxbasico02SQLite/src/CONTROLLER/HomeController.java</file>
+            <file>file:/H:/Noot_DELL/Dev_Software/WorkSpaceJAVA/ws-NetBeans/javafxbasico02SQLite/src/JDBC/SQLiteConect.java</file>
+            <file>file:/H:/Noot_DELL/Dev_Software/WorkSpaceJAVA/ws-NetBeans/javafxbasico02SQLite/src/DTO/EmpresaDto.java</file>
+            <file>file:/H:/Noot_DELL/Dev_Software/WorkSpaceJAVA/ws-NetBeans/javafxbasico02SQLite/src/VIEWMain/TesteBancoDeDados.java</file>
+            <file>file:/H:/Noot_DELL/Dev_Software/WorkSpaceJAVA/ws-NetBeans/javafxbasico02SQLite/src/VIEWMain/AlterarPessoa.java</file>
+            <file>file:/H:/Noot_DELL/Dev_Software/WorkSpaceJAVA/ws-NetBeans/javafxbasico02SQLite/src/CONTROLLER/LogInController.java</file>
+            <file>file:/H:/Noot_DELL/Dev_Software/WorkSpaceJAVA/ws-NetBeans/javafxbasico02SQLite/src/CONTROLLER/ListaPessoaController.java</file>
+            <file>file:/H:/Noot_DELL/Dev_Software/WorkSpaceJAVA/ws-NetBeans/javafxbasico02SQLite/src/JDBC/AtuBanco.java</file>
+            <file>file:/H:/Noot_DELL/Dev_Software/WorkSpaceJAVA/ws-NetBeans/javafxbasico02SQLite/src/VIEWMain/ListarPessoa.java</file>
+            <file>file:/H:/Noot_DELL/Dev_Software/WorkSpaceJAVA/ws-NetBeans/javafxbasico02SQLite/src/DTO/PessoaDto.java</file>
+            <file>file:/H:/Noot_DELL/Dev_Software/WorkSpaceJAVA/ws-NetBeans/javafxbasico02SQLite/src/Utils/ValidaDoc.java</file>
+            <file>file:/H:/Noot_DELL/Dev_Software/WorkSpaceJAVA/ws-NetBeans/javafxbasico02SQLite/src/CONTROLLER/AlterarPessoaController.java</file>
+            <file>file:/H:/Noot_DELL/Dev_Software/WorkSpaceJAVA/ws-NetBeans/javafxbasico02SQLite/src/CONTROLLER/CadEmpresaController.java</file>
+            <file>file:/H:/Noot_DELL/Dev_Software/WorkSpaceJAVA/ws-NetBeans/javafxbasico02SQLite/src/VIEWMain/ListarEmpresa.java</file>
+            <file>file:/H:/Noot_DELL/Dev_Software/WorkSpaceJAVA/ws-NetBeans/javafxbasico02SQLite/src/UTILIDADES/SqlUtil.java</file>
+            <file>file:/H:/Noot_DELL/Dev_Software/WorkSpaceJAVA/ws-NetBeans/javafxbasico02SQLite/src/VIEWMain/Login.java</file>
+            <file>file:/H:/Noot_DELL/Dev_Software/WorkSpaceJAVA/ws-NetBeans/javafxbasico02SQLite/src/VIEWMain/CadEmpresa.java</file>
+            <file>file:/H:/Noot_DELL/Dev_Software/WorkSpaceJAVA/ws-NetBeans/javafxbasico02SQLite/src/CONTROLLER/CadPessoaController.java</file>
+            <file>file:/H:/Noot_DELL/Dev_Software/WorkSpaceJAVA/ws-NetBeans/javafxbasico02SQLite/src/VIEWMain/CadPessoa.java</file>
+            <file>file:/H:/Noot_DELL/Dev_Software/WorkSpaceJAVA/ws-NetBeans/javafxbasico02SQLite/src/VIEWMain/Home.java</file>
+            <file>file:/H:/Noot_DELL/Dev_Software/WorkSpaceJAVA/ws-NetBeans/javafxbasico02SQLite/src/BLL/LoginBll.java</file>
+            <file>file:/H:/Noot_DELL/Dev_Software/WorkSpaceJAVA/ws-NetBeans/javafxbasico02SQLite/src/DAO/EmpresaDao.java</file>
+        </group>
+    </open-files>
+</project-private>

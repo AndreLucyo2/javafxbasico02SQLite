@@ -51,12 +51,6 @@
 
     -->
     
-    <!-- 
-    ======================================================================================================================================================================
-    https://sites.google.com/site/hanstics/disciplinas/programacao-com-linguagem/java/ide-netbeans/configurando-seu-projeto-no-netbeans-pra-gerar-um-unico-pacote-jar
-    
-    ======================================================================================================================================================================
-    -->
     <target name="package-for-store" depends="jar">
 
 	<!-- Change the value of this property to be the name of your JAR,
